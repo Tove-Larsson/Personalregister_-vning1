@@ -15,7 +15,7 @@
 
 			employeeList.AddEmployee(employee);
 
-			Console.WriteLine(employeeList);
+			employeeList.PrintEmployees();
 
 		}
 	}
@@ -40,5 +40,13 @@
 			employees.Add(employee);
 		}
 
+		public void PrintEmployees()
+		{
+			foreach (Employee emp in employees)
+			{
+				Console.WriteLine("Name: " + emp.Name + " | Salary: " + emp.Salary);
+			}
+
+		}
 	}
 }
