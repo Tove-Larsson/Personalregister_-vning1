@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Personalregister.Tests/Personalregister.Tests.csproj" Id="ab52e1dd-00af-4ff3-9a31-4207a7906a8c" />
   <Project Path="Personalregister/Personalregister.csproj" />
 </Solution>
