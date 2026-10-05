@@ -14,8 +14,16 @@
 				Console.WriteLine("Please input the employees name: ");
 				employee.Name = Console.ReadLine();
 
-				Console.WriteLine("Please input the employees salary");
-				employee.Salary = decimal.Parse(Console.ReadLine());
+				Console.WriteLine("Please input the employees salary: ");
+
+				decimal salary;
+
+				while (!decimal.TryParse(Console.ReadLine(), out salary) || salary < 0)
+				{
+					Console.WriteLine("Please enter a valid salary: ");
+				}
+
+				employee.Salary = salary;
 
 				employeeList.AddEmployee(employee);
 
