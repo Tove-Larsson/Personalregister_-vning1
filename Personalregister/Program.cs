@@ -4,7 +4,13 @@
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello, World!");
+			
 		}
+	}
+
+	public class Employee
+	{
+		public string Name { get; set; }
+		public decimal Salary { get; set; }
 	}
 }
