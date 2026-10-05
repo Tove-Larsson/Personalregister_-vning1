@@ -11,8 +11,14 @@
 			{
 				Employee employee = new Employee();
 
-				Console.WriteLine("Please input the employees name: ");
+				Console.WriteLine("Please input the employees name:");
 				employee.Name = Console.ReadLine();
+
+				while (string.IsNullOrWhiteSpace(employee.Name))
+				{
+					Console.WriteLine("Name cannot be empty. Please enter a name:");
+					employee.Name = Console.ReadLine();
+				}
 
 				Console.WriteLine("Please input the employees salary: ");
 
