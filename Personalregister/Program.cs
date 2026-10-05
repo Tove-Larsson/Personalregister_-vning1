@@ -4,44 +4,74 @@
 	{
 		static void Main(string[] args)
 		{
-			EmployeeRegistry employeeList = new EmployeeRegistry();
-			string answer;
+			EmployeeRegistry employeeRegistry = new EmployeeRegistry();
 
-			do
+			ShowMenu(employeeRegistry);
+
+		}
+
+		static void ShowMenu(EmployeeRegistry employeeRegistry)
+		{
+			bool running = true;
+
+			while (running)
 			{
-				Employee employee = new Employee();
+				Console.WriteLine("\n=== Employee Registry ===");
+				Console.WriteLine("1. Add employee");
+				Console.WriteLine("2. Show employees");
+				Console.WriteLine("3. Exit");
+				Console.Write("Choose an option: ");
 
-				Console.WriteLine("Please input the employees name:");
+				string choice = Console.ReadLine();
+
+				switch (choice) 
+				{
+					case "1":
+						Console.WriteLine("Add employee");
+						CreateEmployee(employeeRegistry);
+						break;
+					case "2":
+						Console.WriteLine("Show employees");
+						employeeRegistry.PrintEmployees();
+						break;
+					case "3":
+						Console.WriteLine("Goodbye");
+						running = false;
+						break;
+					default:
+						Console.WriteLine("Invalid option.");
+						break;
+				}
+			}
+		}
+
+		static void CreateEmployee(EmployeeRegistry employeeRegistry)
+		{
+			Employee employee = new Employee();
+
+			Console.WriteLine("Please input the employees name:");
+			employee.Name = Console.ReadLine();
+
+			while (string.IsNullOrWhiteSpace(employee.Name))
+			{
+				Console.WriteLine("Name cannot be empty. Please enter a name:");
 				employee.Name = Console.ReadLine();
+			}
 
-				while (string.IsNullOrWhiteSpace(employee.Name))
-				{
-					Console.WriteLine("Name cannot be empty. Please enter a name:");
-					employee.Name = Console.ReadLine();
-				}
+			Console.WriteLine("Please input the employees salary:");
 
-				Console.WriteLine("Please input the employees salary: ");
+			decimal salary;
 
-				decimal salary;
+			while (!decimal.TryParse(Console.ReadLine(), out salary) || salary < 0)
+			{
+				Console.WriteLine("Please enter a valid salary:");
+			}
 
-				while (!decimal.TryParse(Console.ReadLine(), out salary) || salary < 0)
-				{
-					Console.WriteLine("Please enter a valid salary: ");
-				}
+			employee.Salary = salary;
 
-				employee.Salary = salary;
+			employeeRegistry.AddEmployee(employee);
 
-				employeeList.AddEmployee(employee);
-
-				Console.WriteLine("Do you want to add another employee? y/n");
-
-				answer = Console.ReadLine();
-
-			} while (answer == "y");
-
-			employeeList.PrintEmployees();
-
-
+			Console.WriteLine("Employee added successfully!");
 		}
 	}
 
