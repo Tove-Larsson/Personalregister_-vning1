@@ -4,6 +4,7 @@
 	{
 		static void Main(string[] args)
 		{
+			EmployeeRegistry employeeList = new EmployeeRegistry();
 			Employee employee = new Employee();
 
 			Console.WriteLine("Please input the employees name: ");
@@ -11,6 +12,10 @@
 
 			Console.WriteLine("Please input the employees salary");
 			employee.Salary = decimal.Parse(Console.ReadLine());
+
+			employeeList.AddEmployee(employee);
+
+			Console.WriteLine(employeeList);
 
 		}
 	}
