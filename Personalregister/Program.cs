@@ -5,17 +5,28 @@
 		static void Main(string[] args)
 		{
 			EmployeeRegistry employeeList = new EmployeeRegistry();
-			Employee employee = new Employee();
+			string answer;
 
-			Console.WriteLine("Please input the employees name: ");
-			employee.Name = Console.ReadLine();
+			do
+			{
+				Employee employee = new Employee();
 
-			Console.WriteLine("Please input the employees salary");
-			employee.Salary = decimal.Parse(Console.ReadLine());
+				Console.WriteLine("Please input the employees name: ");
+				employee.Name = Console.ReadLine();
 
-			employeeList.AddEmployee(employee);
+				Console.WriteLine("Please input the employees salary");
+				employee.Salary = decimal.Parse(Console.ReadLine());
+
+				employeeList.AddEmployee(employee);
+
+				Console.WriteLine("Do you want to add another employee? y/n");
+
+				answer = Console.ReadLine();
+
+			} while (answer == "y");
 
 			employeeList.PrintEmployees();
+
 
 		}
 	}
