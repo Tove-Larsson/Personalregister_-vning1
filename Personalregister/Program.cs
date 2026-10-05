@@ -4,6 +4,13 @@
 	{
 		static void Main(string[] args)
 		{
+			Employee employee = new Employee();
+
+			Console.WriteLine("Please input the employees name: ");
+			employee.Name = Console.ReadLine();
+
+			Console.WriteLine("Please input the employees salary");
+			employee.Salary = decimal.Parse(Console.ReadLine());
 
 		}
 	}
@@ -29,4 +36,4 @@
 		}
 
 	}
-	}
+}
